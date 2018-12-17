@@ -1,0 +1,44 @@
+Meeting Room Reservation System
+
+* Background:
+Assume that we have several meeting rooms in an office that people would want to use. Since they are shared resources, someone would have to manually manage their access - i.e allow employees to ‘reserve’ them for a given time period.
+We can do better than that - let’s build a meeting room reservation system. For simplicity, assume that we are dealing with only the current day (don’t have to worry about dates).
+
+
+* Data Model:
+Three tables are used to capture room and reservation information.
+
+    Table name          | Column Name
+    --------------------------------------------------------------------------
+    rooms               | roomID           | room information
+    reservations        | reservationID    | startTime      | endTime  | owner
+    rooms_reservations  | roomID           | reservationID
+
+
+For simplicity, tables are stored as hash map in this project.
+The hash map name is the table name, the key is the first column in the table and values are the rest of the columns.
+
+* API Design
+    * Entity:
+    RoomEntity and ReservationEntity maps to rooms and reservations table in the database.
+
+    * Repository:
+    Implement data access layer to database.
+
+    * Service:
+    Implement reserving and canceling reservation, getting information of room and reservation, checking room availability.
+
+    * Resource:
+    Provides API endpoints following REST style.
+
+* Note
+    * User can only reserve one available room once at a time.
+    * Print sta
+
+Third-party Disclosure:
+JUnit is the testing framework of the project.
+
+Other:
+This project is developed in IntelliJ, SDK 1.8.
+Author: Yinqiao (Vivian) Zheng
+Date: 12/16/2018
